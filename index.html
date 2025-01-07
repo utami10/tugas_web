@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>elvina utami</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script>
+        // Function to store the selected drink name and price in localStorage
+        function setPrice(name, price) {
+            localStorage.setItem("selectedName", name); // Store the drink name
+            localStorage.setItem("selectedPrice", price); // Store the price
+        }
+    </script>
+</head>
+<body>
+    <section class="menu">
+        <div class="nav">
+            <div class="logo"><h1>Min<b>boba</b></h1></div>
+            <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="">Order</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="grid">
+        <div class="content">
+            <div class="content-left">
+                <div class="info">
+                    <h2>Pesan Minuman Terbaik Anda hanya<br>
+                         di Min<b>boba</b></h2>
+                    <p>Nikmati Perpaduan Sempurna antara Manis dan Kenyal,<br>
+                        yang Membawa Kebahagiaan di Setiap Tegukan.</p>
+                </div>
+                <button><a href="gallery.html">Explore Drink</a></button>
+            </div>
+            <div class="content-right">
+                <img src="menu/boba-bg.png" alt="">
+            </div>
+        </div>
+        <!-- Category Section for Best Sellers -->
+    <section class="category">
+        <div class="list-items">
+            <h3>Menu Best Seller</h3>
+            <div class="card-list">
+                <!-- Card for Dalgona Coffee with Boba -->
+                <div class="card">
+                    <img src="menu/Dalgona Coffee with Boba (1).jpeg" alt="Dalgona Coffee with Boba">
+                    <div class="drink-title">
+                        <h1>Dalgona Coffee with Boba</h1>
+                    </div>
+                    <div class="price">
+                        <span>Rp. 34.999,-</span>
+                        <!-- Button to store drink name and price in localStorage -->
+                        <button onclick="setPrice('Dalgona Coffee with Boba', 'Rp. 34.999')">
+                            <a href="order.html">Pesan</a>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card for Oreo Boba Milk Tea -->
+                <div class="card">
+                    <img src="menu/Oreo Boba Milk Tea.jpeg" alt="Oreo Boba Milk Tea">
+                    <div class="drink-title">
+                        <h1>Oreo Boba Milk Tea</h1>
+                    </div>
+                    <div class="price">
+                        <span>Rp. 32.500,-</span>
+                        <button onclick="setPrice('Oreo Boba Milk Tea', 'Rp. 32.500')">
+                            <a href="order.html">Pesan</a>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card for Boba Milk Tea -->
+                <div class="card">
+                    <img src="menu/Boba milk tea.jpeg" alt="Boba Milk Tea">
+                    <div class="drink-title">
+                        <h1>Boba Milk Tea</h1>
+                    </div>
+                    <div class="price">
+                        <span>Rp. 25.300,-</span>
+                        <button onclick="setPrice('Boba Milk Tea', 'Rp. 25.300')">
+                            <a href="order.html">Pesan</a>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card for Red Velvet Boba Milk Tea -->
+                <div class="card">
+                    <img src="menu/Red Velvet Boba Milk Tea.jpeg" alt="Red Velvet Boba Milk Tea">
+                    <div class="drink-title">
+                        <h1>Red Velvet Boba Milk Tea</h1>
+                    </div>
+                    <div class="price">
+                        <span>Rp. 29.999,-</span>
+                        <button onclick="setPrice('Red Velvet Boba Milk Tea', 'Rp. 29.999')">
+                            <a href="order.html">Pesan</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="reviews">
+        <h3>Reviews dari Pelanggan</h3>
+        <div class="review-container">
+            <div class="review-card">
+                <p><strong>Sarah S.</strong></p>
+                <p>"Minuman Boba yang enak banget! Boba-nya kenyal dan rasa kopinya pas banget. Recomended!"</p>
+            </div>
+            <div class="review-card">
+                <p><strong>Rizki A.</strong></p>
+                <p>"Red Velvet Boba Milk Tea-nya juara! Rasanya unik dan segar. Pasti pesan lagi!"</p>
+            </div>
+            <div class="review-card">
+                <p><strong>Lia P.</strong></p>
+                <p>"Oreo Boba Milk Tea-nya enak banget! Kombinasi rasa oreo dan boba-nya bikin ketagihan."</p>
+            </div>
+            <div class="review-card">
+                <p><strong>Indra M.</strong></p>
+                <p>"Boba Milk Tea-nya enak banget! Tekstur boba-nya pas, manisnya juga nggak terlalu over. Love it!"</p>
+            </div>
+            <div class="review-card">
+                <p><strong>Alisha R.</strong></p>
+                <p>"Oreo Boba Milk Tea terbaik yang pernah saya coba. Kualitas boba-nya sangat bagus!"</p>
+            </div>
+            <div class="review-card">
+                <p><strong>Agus F.</strong></p>
+                <p>"Rasa Dalgona Coffee with Boba-nya luar biasa! Bener-bener menggugah selera." </p>
+            </div>
+            <div class="review-card">
+                <p><strong>Jessica T.</strong></p>
+                <p>"Minum Red Velvet Boba Milk Tea dan saya langsung jatuh cinta. Rasanya beda dari yang lain!"</p>
+            </div>
+            <div class="review-card">
+                <p><strong>Fadila N.</strong></p>
+                <p>"Pengalaman pertama coba Boba Milk Tea di sini, ternyata enak banget. Bisa jadi favorit baru!"</p>
+            </div>
+            <div class="review-card">
+                <p><strong>Yulia D.</strong></p>
+                <p>"Suka banget sama Dalgona Coffee with Boba-nya, creamy dan boba-nya super kenyal!"</p>
+            </div>
+            <div class="review-card">
+                <p><strong>Hendra K.</strong></p>
+                <p>"Oreo Boba Milk Tea rasanya memang juara, bisa ngerasain oreo-nya dengan jelas di setiap tegukan!"</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; Create By elvina utami, 2024 Minboba. Bengkulu..</p>
+            <ul class="footer-menu">
+                <li><a href="kebijakan privasi.html">Kebijakan Privasi</a></li>
+                <li><a href="syaratdnkttn.html">Syarat dan Ketentuan</a></li>
+                <li><a href="hubkami.html">Hubungi Kami</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

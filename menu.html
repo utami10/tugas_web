@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minboba - Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Function to store the selected drink name and price in localStorage
+        function setPrice(name, price) {
+            localStorage.setItem("selectedName", name); // Store the drink name
+            localStorage.setItem("selectedPrice", price); // Store the price
+        }
+    </script>
+</head>
+<body>
+    <section class="menu">
+        <div class="nav">
+            <div class="logo"><h1>Min<b>boba</b></h1></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="menu.html">Menu</a></li>
+                <li><a href="">Order</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- Category Section for All Menu Items -->
+    <section class="category">
+        <div class="list-items">
+            <h3>Semua Menu</h3>
+            <div class="card-list">
+                <!-- Card for Dalgona Coffee with Boba -->
+                <div class="card">
+                    <img src="menu/Dalgona Coffee with Boba (1).jpeg" alt="Dalgona Coffee with Boba">
+                    <div class="drink-title">
+                        <h1>Dalgona Coffee with Boba</h1>
+                    </div>
+                    <div class="price">
+                        <span>Rp. 34.999,-</span>
+                        <!-- Button to store drink name and price in localStorage -->
+                        <button onclick="setPrice('Dalgona Coffee with Boba', 'Rp. 34.999')">
+                            <a href="order.html">Pesan</a>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card for Oreo Boba Milk Tea -->
+                <div class="card">
+                    <img src="menu/Oreo Boba Milk Tea.jpeg" alt="Oreo Boba Milk Tea">
+                    <div class="drink-title">
+                        <h1>Oreo Boba Milk Tea</h1>
+                    </div>
+                    <div class="price">
+                        <span>Rp. 32.500,-</span>
+                        <button onclick="setPrice('Oreo Boba Milk Tea', 'Rp. 32.500')">
+                            <a href="order.html">Pesan</a>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card for Boba Milk Tea -->
+                <div class="card">
+                    <img src="menu/Boba milk tea.jpeg" alt="Boba Milk Tea">
+                    <div class="drink-title">
+                        <h1>Boba Milk Tea</h1>
+                    </div>
+                    <div class="price">
+                        <span>Rp. 25.300,-</span>
+                        <button onclick="setPrice('Boba Milk Tea', 'Rp. 25.300')">
+                            <a href="order.html">Pesan</a>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card for Red Velvet Boba Milk Tea -->
+                <div class="card">
+                    <img src="menu/Red Velvet Boba Milk Tea.jpeg" alt="Red Velvet Boba Milk Tea">
+                    <div class="drink-title">
+                        <h1>Red Velvet Boba Milk Tea</h1>
+                    </div>
+                    <div class="price">
+                        <span>Rp. 29.999,-</span>
+                        <button onclick="setPrice('Red Velvet Boba Milk Tea', 'Rp. 29.999')">
+                            <a href="order.html">Pesan</a>
+                        </button>
+                    </div>
+                </div>
+                <!-- Card for Taro Boba Milk Tea -->
+                <div class="card">
+                    <img src="menu/Taro Boba Milk Tea.jpeg" alt="Taro Boba Milk Tea">
+                    <div class="drink-title">
+                        <h1>Taro Boba Milk Tea</h1>
+                    </div>
+                    <div class="price">
+                        <span>Rp. 20.000,-</span>
+                        <button onclick="setPrice('Taro Boba Milk Tea', 'Rp. 20.000')">
+                            <a href="order.html">Pesan</a>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card for Matcha Boba -->
+                <div class="card">
+                    <img src="menu/Matcha Boba (1).jpeg" alt="Matcha Boba">
+                    <div class="drink-title">
+                        <h1>Matcha Boba</h1>
+                    </div>
+                    <div class="price">
+                        <span>Rp. 20.000,-</span>
+                        <button onclick="setPrice('Matcha Boba', 'Rp. 20.000')">
+                            <a href="order.html">Pesan</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; Create By elvina utami, 2024 Minboba. Bengkulu.</p>
+            <ul class="footer-menu">
+                <li><a href="kebijakan privasi.html">Kebijakan Privasi</a></li>
+                <li><a href="syaratdnkttn.html">Syarat dan Ketentuan</a></li>
+                <li><a href="hubkami.html">Hubungi Kami</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

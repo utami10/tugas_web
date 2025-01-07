@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Minboba - Payment</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const selectedName = localStorage.getItem("selectedName") || "Nama Minuman"; // Ambil nama minuman
+            const selectedPrice = localStorage.getItem("selectedPrice") || "Rp. 0"; // Ambil harga minuman
+    
+            // Set nilai awal pada input form
+            document.getElementById("drink-name").value = selectedName;
+            document.getElementById("price").value = selectedPrice;
+    
+            // Ambil elemen input jumlah dan total harga
+            const quantityInput = document.getElementById("quantity");
+            const totalInput = document.getElementById("total");
+    
+            // Fungsi untuk memperbarui total harga
+            function updateTotal() {
+                const quantity = parseInt(quantityInput.value) || 1; // Ambil jumlah barang, default 1 jika kosong
+                const price = parseInt(selectedPrice.replace(/[^\d]/g, "")) || 0; // Hapus simbol "Rp" dan koma
+                const total = quantity * price; // Hitung total harga
+                totalInput.value = "Rp. " + total.toLocaleString("id-ID"); // Format total harga ke Rupiah
+            }
+    
+            // Jalankan fungsi saat jumlah diubah
+            quantityInput.addEventListener("input", updateTotal);
+    
+            // Jalankan fungsi awal untuk memastikan total sesuai jumlah default
+            updateTotal();
+    
+            // Penanganan metode pembayaran
+            const paymentMethod = document.getElementById("payment-method");
+            const barcodeSection = document.getElementById("barcode-section");
+            const creditSection = document.getElementById("credit-section");
+            const paypalSection = document.getElementById("paypal-section");
+            const codSection = document.getElementById("cod-section");
+    
+            paymentMethod.addEventListener("change", function () {
+                barcodeSection.style.display = "none";
+                creditSection.style.display = "none";
+                paypalSection.style.display = "none";
+                codSection.style.display = "none";
+    
+                if (this.value === "bank-transfer") {
+                    barcodeSection.style.display = "block";
+                } else if (this.value === "credit-card") {
+                    creditSection.style.display = "block";
+                } else if (this.value === "paypal") {
+                    paypalSection.style.display = "block";
+                } else if (this.value === "cash-on-delivery") {
+                    codSection.style.display = "block";
+                }
+            });
+        });
+    
+        function showProcessing(event) {
+            event.preventDefault();
+    
+            const name = document.getElementById("full-name").value;
+            const address = document.getElementById("address").value;
+    
+            if (!name || !address) {
+                alert("Harap isi terlebih dahulu sebelum melanjutkan.");
+                return;
+            }
+    
+            const paymentMethod = document.getElementById("payment-method").value;
+    
+            if (paymentMethod === "bank-transfer") {
+                alert("Pesanan Anda akan diproses setelah barcode dipindai.");
+            } else {
+                document.querySelector(".btn-submit").style.display = "none";
+    
+                const processingMessage = document.getElementById("processing-message");
+                processingMessage.style.display = "block";
+    
+                setTimeout(() => {
+                    alert("Pesanan Anda sedang diproses!");
+                    processingMessage.style.display = "none";
+                    location.reload();
+                }, 3000);
+            }
+        }
+    </script>
+    
+    
+    <style>
+        .hidden-section {
+            display: none;
+            margin-top: 20px;
+        }
+        .barcode {
+            margin: 20px auto;
+            display: block;
+            width: 200px;
+        }
+        #processing-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="logo"><h1>Min<b>boba</b></h1></div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a class="active" href="#">Order</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
+
+    <section class="payment">
+        <div class="container">
+            <h1>Pembayaran</h1>
+            <form action="#" method="post">
+                
+                <div class="form-group">
+                    <label for="full-name">Nama</label>
+                    <input type="text" id="full-name" name="full-name" placeholder="Masukkan nama kamu" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Alamat</label>
+                    <input type="text" id="address" name="address" placeholder="Masukkan alamat kamu" required>
+                </div>
+                <div class="form-group">
+                    <label for="drink-name">Menu</label>
+                    <input type="text" id="drink-name" name="drink-name" value="" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Harga</label>
+                    <input type="text" id="price" name="price" value="Rp. 0" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Jumlah</label>
+                    <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="total">Total Pesanan</label>
+                    <input type="text" id="total" name="total" value="Rp. 0" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="payment-method">Pilih Pembayaran</label>
+                    <select id="payment-method" name="payment-method" required>
+                        <option value="" disabled selected>Pilih pembayaran</option>
+                        <option value="credit-card">Bank Transfer</option>
+                        <option value="cash-on-delivery">Cash on Delivery</option>
+                    </select>
+                </div>
+
+                <div id="barcode-section" class="hidden-section">
+                    <h2>Scan QR Code untuk Transfer</h2>
+                    <img src="menu/barcode (1).gif" alt="QR Code" class="barcode">
+                    <p>Gunakan aplikasi mobile banking Anda untuk memindai kode QR ini.</p>
+                </div>
+
+                <div id="credit-section" class="hidden-section">
+                    <h2>Bank Transfer</h2>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" name="card-number" placeholder="Enter your card number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expiry-date">Expiry Date</label>
+                        <input type="text" id="expiry-date" name="expiry-date" placeholder="DD/MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">Password</label>
+                        <input type="text" id="password" name="password" placeholder="Enter Password" required>
+                    </div>
+                </div>
+
+                <div id="paypal-section" class="hidden-section">
+                    <h2>Bayar dengan PayPal</h2>
+                    <p>Anda akan dialihkan ke halaman PayPal untuk menyelesaikan pembayaran.</p>
+                    <button type="button" onclick="alert('Dialihkan ke PayPal')">Lanjutkan ke PayPal</button>
+                </div>
+
+                <div id="cod-section" class="hidden-section">
+                    <h2>Cash on Delivery</h2>
+                    <p>Anda akan membayar pesanan Anda secara langsung kepada kurir saat pesanan diterima.</p>
+                    <p>Pastikan alamat pengiriman Anda sudah benar!</p>
+                </div>
+
+                <button type="submit" class="btn-submit" onclick="showProcessing(event)">Pesan Sekarang</button>
+
+                <div id="processing-message">
+                    <p>Pesanan Anda sedang diproses... Harap tunggu!</p>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
